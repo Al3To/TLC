@@ -16,5 +16,15 @@ namespace TLC
         {
             InitializeComponent();
         }
+
+        private void panelWindowControl_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelWindowControl_MouseLeave(object sender, EventArgs e)
+        {
+
+        }
     }
 }
