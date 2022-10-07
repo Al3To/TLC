@@ -81,13 +81,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\red_dot.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\yellow_dot.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\green_dot.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

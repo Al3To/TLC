@@ -59,35 +59,5 @@ namespace TLC.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap green_dot {
-            get {
-                object obj = ResourceManager.GetObject("green_dot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap red_dot {
-            get {
-                object obj = ResourceManager.GetObject("red_dot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap yellow_dot {
-            get {
-                object obj = ResourceManager.GetObject("yellow_dot", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }
