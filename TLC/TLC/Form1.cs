@@ -16,6 +16,8 @@ namespace TLC
         public Form1()
         {
             InitializeComponent();
+            this.Text = string.Empty;
+            this.ControlBox = false;
             this.DoubleBuffered = true;
         }
 
@@ -28,9 +30,22 @@ namespace TLC
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
         {
+            FormBorderStyle = FormBorderStyle.Sizable;
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if(this.WindowState != FormWindowState.Maximized)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
+            }
+            else
+            {
+                FormBorderStyle = FormBorderStyle.None;
+            }
+        }
+
 
         //Controls
         private void panelWindowControl_MouseEnter(object sender, EventArgs e)
@@ -55,9 +70,14 @@ namespace TLC
         private void pictureMaximize_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Maximized)
+            {
+                FormBorderStyle = FormBorderStyle.Sizable;
                 this.WindowState = FormWindowState.Normal;
+
+            }
             else
             {
+                FormBorderStyle = FormBorderStyle.None;
                 this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
                 this.WindowState = FormWindowState.Maximized;
             }
@@ -89,5 +109,7 @@ namespace TLC
             pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
             pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
         }
+
+        
     }
 }

@@ -9,3 +9,13 @@ C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\T
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.CoreCompileInputs.cache
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.exe
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.pdb
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\bin\Debug\TLC.exe.config
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\bin\Debug\TLC.exe
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\bin\Debug\TLC.pdb
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csprojAssemblyReference.cache
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Form1.resources
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Properties.Resources.resources
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.GenerateResource.cache
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.CoreCompileInputs.cache
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.exe
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.pdb
