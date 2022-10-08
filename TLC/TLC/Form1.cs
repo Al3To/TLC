@@ -21,7 +21,31 @@ namespace TLC
             this.DoubleBuffered = true;
         }
 
-
+        //Generate Table
+        private void btnGenerateDGV_Click(object sender, EventArgs e)
+        {
+            if(textBoxColumns.Text != "" && textBoxRows.Text != "" && textBoxColumns.Text != "1" && textBoxRows.Text != "1")
+            {
+                int c = Convert.ToInt32(textBoxColumns.Text) + 1;
+                int r = Convert.ToInt32(textBoxRows.Text);
+                DGV.ColumnCount = c;
+                DGV.Columns[0].Name = " ";
+                for(int n = 1; n<DGV.ColumnCount; ++n)
+                {
+                    DGV.Columns[n].Name = "Consumatore " + n;
+                    DGV.Columns[n].SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+                for(int n = 0; n < r; ++n)
+                {
+                    DGV.Rows.Add("Produttore " + (n+1));
+                }
+                DGV.Columns[0].ReadOnly = true;
+            }
+            else
+            {
+                MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
+            }
+        }
 
         //Move Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -109,7 +133,42 @@ namespace TLC
             pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
             pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
         }
+        //Block Letters 
+        private void textBoxColumns_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
 
-        
+        private void textBoxRows_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true;
+        }
+
+        private void DGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(DGV_KeyPress);
+                TextBox tb = e.Control as TextBox;
+            if (tb != null)
+            {
+                tb.KeyPress += new KeyPressEventHandler(DGV_KeyPress);
+            }
+        }
+        void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
+            {
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void DGV_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
