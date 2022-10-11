@@ -19,6 +19,64 @@ namespace TLC
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            customizeDGV();
+        }
+
+        //Resolution Methods
+        private void btnSolve_Click(object sender, EventArgs e)
+        {
+            if (Check())
+            {
+                CalculateTotal();
+                if (DGV[DGV.ColumnCount - 1, DGV.RowCount - 1].Value == null)
+                    return;
+                else
+                {
+                    NordOvest();
+                    MinimumCost();
+                }
+            }
+            else
+            {
+                MessageBox.Show("La tabella non è completa!", "Errore", MessageBoxButtons.OK);
+            }
+        }
+        public bool Check()
+        {
+            for (int c = 0; c < DGV.ColumnCount; ++c)
+            {
+                for (int r = 0; r < DGV.RowCount; ++r)
+                {
+                    if (DGV[c, r].Value == null)
+                    {
+                        if (c != DGV.ColumnCount && r != DGV.RowCount - 1)
+                            return false;
+                    }
+                }
+            }
+            return true;
+        }
+        public void CalculateTotal()
+        {
+            int sumC = 0, sumR = 0;
+            for (int c = 1; c < DGV.ColumnCount; ++c)
+                if (c != DGV.ColumnCount)
+                    sumC += Convert.ToInt32(DGV[c, DGV.RowCount-1].Value);
+            for (int r = 0; r < DGV.RowCount; ++r)
+                if (r != DGV.RowCount)
+                    sumR += Convert.ToInt32(DGV[DGV.ColumnCount-1, r].Value);
+            if (sumC == sumR)
+                DGV[DGV.ColumnCount-1, DGV.RowCount-1].Value = sumC;
+            else
+                MessageBox.Show("Il totale dei prodotti richiesti non coincide con il totale dei prodotti disponibili!", "Errore", MessageBoxButtons.OK);
+        }
+        public void NordOvest()
+        {
+
+        }
+        public void MinimumCost()
+        {
+
         }
 
         //Generate Table
@@ -26,20 +84,28 @@ namespace TLC
         {
             if(textBoxColumns.Text != "" && textBoxRows.Text != "" && textBoxColumns.Text != "1" && textBoxRows.Text != "1")
             {
+                DGV.DataSource = null;
+                DGV.Rows.Clear();
                 int c = Convert.ToInt32(textBoxColumns.Text) + 1;
-                int r = Convert.ToInt32(textBoxRows.Text);
-                DGV.ColumnCount = c;
+                int r = Convert.ToInt32(textBoxRows.Text) + 1;
+                DGV.ColumnCount = c+1;
                 DGV.Columns[0].Name = " ";
-                for(int n = 1; n<DGV.ColumnCount; ++n)
+                for(int n = 1; n<DGV.ColumnCount-1; ++n)
                 {
                     DGV.Columns[n].Name = "Consumatore " + n;
                     DGV.Columns[n].SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
-                for(int n = 0; n < r; ++n)
+                DGV.Columns[c].Name = "Produzione";
+                DGV.Columns[c].SortMode = DataGridViewColumnSortMode.NotSortable;
+                for(int n = 0; n < r-1; ++n)
                 {
                     DGV.Rows.Add("Produttore " + (n+1));
                 }
+                DGV.Rows.Add("Richiesta");
+                DGV[c, r-1].ReadOnly = true;
                 DGV.Columns[0].ReadOnly = true;
+                DGV.Columns[0].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+
             }
             else
             {
@@ -138,31 +204,28 @@ namespace TLC
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+            else if (e.KeyChar == (char)13)
+                btnGenerateDGV.PerformClick();
         }
 
         private void textBoxRows_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
                 e.Handled = true;
+            else if (e.KeyChar == (char)13)
+                btnGenerateDGV.PerformClick();
         }
 
         private void DGV_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             e.Control.KeyPress -= new KeyPressEventHandler(DGV_KeyPress);
-                TextBox tb = e.Control as TextBox;
+            TextBox tb = e.Control as TextBox;
+            tb.ShortcutsEnabled = false;
             if (tb != null)
             {
                 tb.KeyPress += new KeyPressEventHandler(DGV_KeyPress);
             }
         }
-        void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && (e.KeyCode == Keys.C | e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true;
-            }
-        }
-
         private void DGV_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -170,5 +233,12 @@ namespace TLC
                 e.Handled = true;
             }
         }
+        //Customize DataGridView
+        private void customizeDGV()
+        {
+            DGV.BorderStyle = BorderStyle.None;
+        }
+
+        
     }
 }
