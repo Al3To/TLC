@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.btnSolve = new TLC.CustomButton.CustomButton();
             this.btnGenerateDGV = new TLC.CustomButton.CustomButton();
             this.labelRows = new System.Windows.Forms.Label();
             this.labelColumns = new System.Windows.Forms.Label();
@@ -44,7 +45,6 @@
             this.pictureMinimize = new System.Windows.Forms.PictureBox();
             this.pictureMaximize = new System.Windows.Forms.PictureBox();
             this.DGV = new System.Windows.Forms.DataGridView();
-            this.btnSolve = new TLC.CustomButton.CustomButton();
             this.panelTitle.SuspendLayout();
             this.panelWindowControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
@@ -70,7 +70,28 @@
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.Size = new System.Drawing.Size(1024, 99);
             this.panelTitle.TabIndex = 0;
+            this.panelTitle.DoubleClick += new System.EventHandler(this.panelTitle_DoubleClick);
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
+            // 
+            // btnSolve
+            // 
+            this.btnSolve.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSolve.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSolve.BorderRadius = 20;
+            this.btnSolve.BorderSize = 0;
+            this.btnSolve.FlatAppearance.BorderSize = 0;
+            this.btnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSolve.ForeColor = System.Drawing.Color.White;
+            this.btnSolve.Location = new System.Drawing.Point(874, 50);
+            this.btnSolve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.Size = new System.Drawing.Size(150, 41);
+            this.btnSolve.TabIndex = 10;
+            this.btnSolve.Text = "Trova I Costi";
+            this.btnSolve.TextColor = System.Drawing.Color.White;
+            this.btnSolve.UseVisualStyleBackColor = false;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
             // 
             // btnGenerateDGV
             // 
@@ -246,26 +267,6 @@
             this.DGV.TabIndex = 1;
             this.DGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DGV_EditingControlShowing);
             this.DGV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGV_KeyPress);
-            // 
-            // btnSolve
-            // 
-            this.btnSolve.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSolve.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSolve.BorderRadius = 20;
-            this.btnSolve.BorderSize = 0;
-            this.btnSolve.FlatAppearance.BorderSize = 0;
-            this.btnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSolve.ForeColor = System.Drawing.Color.White;
-            this.btnSolve.Location = new System.Drawing.Point(874, 50);
-            this.btnSolve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSolve.Name = "btnSolve";
-            this.btnSolve.Size = new System.Drawing.Size(150, 41);
-            this.btnSolve.TabIndex = 10;
-            this.btnSolve.Text = "Trova I Costi";
-            this.btnSolve.TextColor = System.Drawing.Color.White;
-            this.btnSolve.UseVisualStyleBackColor = false;
-            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
             // 
             // Form1
             // 

@@ -28,8 +28,7 @@ namespace TLC
             if (Check())
             {
                 CalculateTotal();
-                if (DGV[DGV.ColumnCount - 1, DGV.RowCount - 1].Value == null)
-                    return;
+                if (DGV[DGV.ColumnCount - 1, DGV.RowCount - 1].Value == null) return;
                 else
                 {
                     NordOvest();
@@ -72,11 +71,52 @@ namespace TLC
         }
         public void NordOvest()
         {
-
+            int p; //production
+            int n; //needs
+            int c = 0; //Cost
+            while (DGV.ColumnCount==2) {
+                p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, 0].Value.ToString());
+                n = Convert.ToInt32(DGV[1, DGV.RowCount].Value.ToString());
+                if (n < p)
+                {
+                    DGV[1, DGV.RowCount-1].Value = 0;
+                    DGV[DGV.ColumnCount - 1, 0].Value = p - n;
+                    c += n * Convert.ToInt32(DGV[1, 0].Value);
+                }
+                else
+                {
+                    DGV[DGV.ColumnCount - 1, 0].Value = 0;
+                    DGV[1, DGV.RowCount - 1].Value = n - p;
+                    c += n * Convert.ToInt32(DGV[1, 0].Value);
+                }
+                CheckFinished();
+            }
+            MessageBox.Show(c.ToString());
         }
         public void MinimumCost()
         {
 
+        }
+        public void CheckFinished()
+        {
+            int c = DGV.ColumnCount; 
+            int r = DGV.RowCount; 
+            for (int n = 1; n < c - 1; ++n)
+                if (Int32.TryParse(DGV[n, r-1].Value.ToString(), out Int32 num))
+                    if (num == 0)
+                    {
+                        DGV.Columns.RemoveAt(n);
+                        c--;
+                        n--;
+                    }
+            for (int n = 0; n < r; ++n)
+                if (Int32.TryParse(DGV[c-1,n].Value.ToString(), out Int32 num))
+                    if (num == 0)
+                    {
+                        DGV.Rows.RemoveAt(n);
+                        r--;
+                        n--;
+                    }
         }
 
         //Generate Table
@@ -105,12 +145,9 @@ namespace TLC
                 DGV[c, r-1].ReadOnly = true;
                 DGV.Columns[0].ReadOnly = true;
                 DGV.Columns[0].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
             }
             else
-            {
                 MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
-            }
         }
 
         //Move Form
@@ -124,9 +161,11 @@ namespace TLC
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        //Controls
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if(this.WindowState != FormWindowState.Maximized)
+            if (this.WindowState != FormWindowState.Maximized)
             {
                 FormBorderStyle = FormBorderStyle.Sizable;
             }
@@ -135,21 +174,18 @@ namespace TLC
                 FormBorderStyle = FormBorderStyle.None;
             }
         }
-
-
-        //Controls
+        private void panelTitle_DoubleClick(object sender, EventArgs e)
+        {
+            pictureMaximize_Click(this.pictureMaximize, e);
+        }
         private void panelWindowControl_MouseEnter(object sender, EventArgs e)
         {
-            pictureClose.ImageLocation = @"../../../Images/red_dot_in.png";
-            pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
-            pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
+            ChangeImage(true);
         }
 
         private void panelWindowControl_MouseLeave(object sender, EventArgs e)
         {
-            pictureClose.ImageLocation = @"../../../Images/red_dot.png";
-            pictureMaximize.ImageLocation = @"../../../Images/yellow_dot.png";
-            pictureMinimize.ImageLocation = @"../../../Images/green_dot.png";
+            ChangeImage(false);
         }
 
         private void pictureClose_Click(object sender, EventArgs e)
@@ -181,23 +217,31 @@ namespace TLC
 
         private void pictureClose_MouseEnter(object sender, EventArgs e)
         {
-            pictureClose.ImageLocation = @"../../../Images/red_dot_in.png";
-            pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
-            pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
+            ChangeImage(true);
         }
-
         private void pictureMaximize_MouseEnter(object sender, EventArgs e)
         {
-            pictureClose.ImageLocation = @"../../../Images/red_dot_in.png";
-            pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
-            pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
+            ChangeImage(true);
         }
 
         private void pictureMinimize_MouseEnter(object sender, EventArgs e)
         {
-            pictureClose.ImageLocation = @"../../../Images/red_dot_in.png";
-            pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
-            pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
+            ChangeImage(true);
+        }
+        private void ChangeImage(bool a)
+        {
+            if (a)
+            {
+                pictureClose.ImageLocation = @"../../../Images/red_dot_in.png";
+                pictureMaximize.ImageLocation = @"../../../Images/yellow_dot_in.png";
+                pictureMinimize.ImageLocation = @"../../../Images/green_dot_in.png";
+            }
+            else
+            {
+                pictureClose.ImageLocation = @"../../../Images/red_dot.png";
+                pictureMaximize.ImageLocation = @"../../../Images/yellow_dot.png";
+                pictureMinimize.ImageLocation = @"../../../Images/green_dot.png";
+            }
         }
         //Block Letters 
         private void textBoxColumns_KeyPress(object sender, KeyPressEventArgs e)
@@ -238,7 +282,5 @@ namespace TLC
         {
             DGV.BorderStyle = BorderStyle.None;
         }
-
-        
     }
 }
