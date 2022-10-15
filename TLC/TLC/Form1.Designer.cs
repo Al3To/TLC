@@ -66,9 +66,9 @@
             this.panelTitle.Controls.Add(this.panelWindowControl);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
-            this.panelTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelTitle.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1024, 99);
+            this.panelTitle.Size = new System.Drawing.Size(768, 80);
             this.panelTitle.TabIndex = 0;
             this.panelTitle.DoubleClick += new System.EventHandler(this.panelTitle_DoubleClick);
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
@@ -80,13 +80,14 @@
             this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnSolve.BorderRadius = 20;
             this.btnSolve.BorderSize = 0;
+            this.btnSolve.Enabled = false;
             this.btnSolve.FlatAppearance.BorderSize = 0;
             this.btnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSolve.ForeColor = System.Drawing.Color.White;
-            this.btnSolve.Location = new System.Drawing.Point(874, 50);
-            this.btnSolve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSolve.Location = new System.Drawing.Point(656, 41);
+            this.btnSolve.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnSolve.Name = "btnSolve";
-            this.btnSolve.Size = new System.Drawing.Size(150, 41);
+            this.btnSolve.Size = new System.Drawing.Size(112, 33);
             this.btnSolve.TabIndex = 10;
             this.btnSolve.Text = "Trova I Costi";
             this.btnSolve.TextColor = System.Drawing.Color.White;
@@ -103,10 +104,10 @@
             this.btnGenerateDGV.FlatAppearance.BorderSize = 0;
             this.btnGenerateDGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGenerateDGV.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateDGV.Location = new System.Drawing.Point(419, 31);
-            this.btnGenerateDGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGenerateDGV.Location = new System.Drawing.Point(314, 25);
+            this.btnGenerateDGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnGenerateDGV.Name = "btnGenerateDGV";
-            this.btnGenerateDGV.Size = new System.Drawing.Size(150, 41);
+            this.btnGenerateDGV.Size = new System.Drawing.Size(112, 33);
             this.btnGenerateDGV.TabIndex = 9;
             this.btnGenerateDGV.Text = "Genera Tabella";
             this.btnGenerateDGV.TextColor = System.Drawing.Color.White;
@@ -117,9 +118,10 @@
             // 
             this.labelRows.AutoSize = true;
             this.labelRows.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRows.Location = new System.Drawing.Point(187, 68);
+            this.labelRows.Location = new System.Drawing.Point(140, 55);
+            this.labelRows.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelRows.Name = "labelRows";
-            this.labelRows.Size = new System.Drawing.Size(67, 16);
+            this.labelRows.Size = new System.Drawing.Size(55, 13);
             this.labelRows.TabIndex = 8;
             this.labelRows.Text = "Produttori:";
             // 
@@ -127,9 +129,10 @@
             // 
             this.labelColumns.AutoSize = true;
             this.labelColumns.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelColumns.Location = new System.Drawing.Point(169, 17);
+            this.labelColumns.Location = new System.Drawing.Point(127, 14);
+            this.labelColumns.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelColumns.Name = "labelColumns";
-            this.labelColumns.Size = new System.Drawing.Size(85, 16);
+            this.labelColumns.Size = new System.Drawing.Size(68, 13);
             this.labelColumns.TabIndex = 7;
             this.labelColumns.Text = "Consumatori:";
             // 
@@ -137,11 +140,11 @@
             // 
             this.textBoxRows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.textBoxRows.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxRows.Location = new System.Drawing.Point(281, 66);
-            this.textBoxRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxRows.Location = new System.Drawing.Point(211, 54);
+            this.textBoxRows.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxRows.Name = "textBoxRows";
             this.textBoxRows.ShortcutsEnabled = false;
-            this.textBoxRows.Size = new System.Drawing.Size(131, 22);
+            this.textBoxRows.Size = new System.Drawing.Size(99, 20);
             this.textBoxRows.TabIndex = 6;
             this.textBoxRows.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRows_KeyPress);
             // 
@@ -149,11 +152,11 @@
             // 
             this.textBoxColumns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.textBoxColumns.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxColumns.Location = new System.Drawing.Point(281, 16);
-            this.textBoxColumns.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxColumns.Location = new System.Drawing.Point(211, 13);
+            this.textBoxColumns.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBoxColumns.Name = "textBoxColumns";
             this.textBoxColumns.ShortcutsEnabled = false;
-            this.textBoxColumns.Size = new System.Drawing.Size(131, 22);
+            this.textBoxColumns.Size = new System.Drawing.Size(99, 20);
             this.textBoxColumns.TabIndex = 5;
             this.textBoxColumns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxColumns_KeyPress);
             // 
@@ -161,9 +164,9 @@
             // 
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(162, 99);
+            this.panelLogo.Size = new System.Drawing.Size(122, 80);
             this.panelLogo.TabIndex = 4;
             // 
             // panelWindowControl
@@ -172,10 +175,10 @@
             this.panelWindowControl.Controls.Add(this.pictureClose);
             this.panelWindowControl.Controls.Add(this.pictureMinimize);
             this.panelWindowControl.Controls.Add(this.pictureMaximize);
-            this.panelWindowControl.Location = new System.Drawing.Point(930, 0);
-            this.panelWindowControl.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panelWindowControl.Location = new System.Drawing.Point(698, 0);
+            this.panelWindowControl.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panelWindowControl.Name = "panelWindowControl";
-            this.panelWindowControl.Size = new System.Drawing.Size(91, 27);
+            this.panelWindowControl.Size = new System.Drawing.Size(68, 22);
             this.panelWindowControl.TabIndex = 3;
             this.panelWindowControl.MouseEnter += new System.EventHandler(this.panelWindowControl_MouseEnter);
             this.panelWindowControl.MouseLeave += new System.EventHandler(this.panelWindowControl_MouseLeave);
@@ -184,10 +187,10 @@
             // 
             this.pictureClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureClose.Image = ((System.Drawing.Image)(resources.GetObject("pictureClose.Image")));
-            this.pictureClose.Location = new System.Drawing.Point(62, 4);
-            this.pictureClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureClose.Location = new System.Drawing.Point(46, 3);
+            this.pictureClose.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureClose.Name = "pictureClose";
-            this.pictureClose.Size = new System.Drawing.Size(23, 21);
+            this.pictureClose.Size = new System.Drawing.Size(17, 17);
             this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureClose.TabIndex = 0;
             this.pictureClose.TabStop = false;
@@ -199,10 +202,10 @@
             this.pictureMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMinimize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMinimize.Image")));
-            this.pictureMinimize.Location = new System.Drawing.Point(3, 4);
-            this.pictureMinimize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureMinimize.Location = new System.Drawing.Point(2, 3);
+            this.pictureMinimize.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureMinimize.Name = "pictureMinimize";
-            this.pictureMinimize.Size = new System.Drawing.Size(23, 21);
+            this.pictureMinimize.Size = new System.Drawing.Size(17, 17);
             this.pictureMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMinimize.TabIndex = 1;
             this.pictureMinimize.TabStop = false;
@@ -213,10 +216,10 @@
             // 
             this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureMaximize.Image = ((System.Drawing.Image)(resources.GetObject("pictureMaximize.Image")));
-            this.pictureMaximize.Location = new System.Drawing.Point(32, 4);
-            this.pictureMaximize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureMaximize.Location = new System.Drawing.Point(24, 3);
+            this.pictureMaximize.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureMaximize.Name = "pictureMaximize";
-            this.pictureMaximize.Size = new System.Drawing.Size(23, 21);
+            this.pictureMaximize.Size = new System.Drawing.Size(17, 17);
             this.pictureMaximize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureMaximize.TabIndex = 2;
             this.pictureMaximize.TabStop = false;
@@ -249,8 +252,8 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.EnableHeadersVisualStyles = false;
             this.DGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.DGV.Location = new System.Drawing.Point(0, 99);
-            this.DGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DGV.Location = new System.Drawing.Point(0, 80);
+            this.DGV.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.DGV.Name = "DGV";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -263,20 +266,20 @@
             this.DGV.RowHeadersVisible = false;
             this.DGV.RowHeadersWidth = 51;
             this.DGV.RowTemplate.Height = 24;
-            this.DGV.Size = new System.Drawing.Size(1024, 413);
+            this.DGV.Size = new System.Drawing.Size(768, 336);
             this.DGV.TabIndex = 1;
             this.DGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DGV_EditingControlShowing);
             this.DGV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGV_KeyPress);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
-            this.ClientSize = new System.Drawing.Size(1024, 512);
+            this.ClientSize = new System.Drawing.Size(768, 416);
             this.Controls.Add(this.DGV);
             this.Controls.Add(this.panelTitle);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Resize += new System.EventHandler(this.Form1_Resize);

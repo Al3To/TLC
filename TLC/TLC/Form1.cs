@@ -8,6 +8,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
+using System.Diagnostics;
+using System.IO;
 
 namespace TLC
 {
@@ -73,31 +76,32 @@ namespace TLC
         {
             int p; //production
             int n; //needs
-            int c = 0; //Cost
-            while (DGV.ColumnCount==2) {
+            int c = 0; //cost
+            while (DGV.ColumnCount!=2) {
                 p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, 0].Value.ToString());
-                n = Convert.ToInt32(DGV[1, DGV.RowCount].Value.ToString());
+                n = Convert.ToInt32(DGV[1, DGV.RowCount-1].Value.ToString());
                 if (n < p)
                 {
-                    DGV[1, DGV.RowCount-1].Value = 0;
-                    DGV[DGV.ColumnCount - 1, 0].Value = p - n;
+                    DGV[1, DGV.RowCount - 1].Value = "0";
+                    DGV[DGV.ColumnCount - 1, 0].Value = Convert.ToString(p - n);
                     c += n * Convert.ToInt32(DGV[1, 0].Value);
                 }
                 else
                 {
-                    DGV[DGV.ColumnCount - 1, 0].Value = 0;
-                    DGV[1, DGV.RowCount - 1].Value = n - p;
-                    c += n * Convert.ToInt32(DGV[1, 0].Value);
-                }
-                CheckFinished();
+                    DGV[DGV.ColumnCount - 1, 0].Value = "0";
+                    DGV[1, DGV.RowCount - 1].Value = Convert.ToString(n - p);
+                    c += p * Convert.ToInt32(DGV[1, 0].Value);
+                }               
+                RemoveEmptys();
             }
             MessageBox.Show(c.ToString());
+            btnSolve.Enabled = false;
         }
         public void MinimumCost()
         {
 
         }
-        public void CheckFinished()
+        public void RemoveEmptys()
         {
             int c = DGV.ColumnCount; 
             int r = DGV.RowCount; 
@@ -108,6 +112,7 @@ namespace TLC
                         DGV.Columns.RemoveAt(n);
                         c--;
                         n--;
+                        Thread.Sleep(1000);
                     }
             for (int n = 0; n < r; ++n)
                 if (Int32.TryParse(DGV[c-1,n].Value.ToString(), out Int32 num))
@@ -116,6 +121,7 @@ namespace TLC
                         DGV.Rows.RemoveAt(n);
                         r--;
                         n--;
+                        Thread.Sleep(1000);
                     }
         }
 
@@ -138,13 +144,12 @@ namespace TLC
                 DGV.Columns[c].Name = "Produzione";
                 DGV.Columns[c].SortMode = DataGridViewColumnSortMode.NotSortable;
                 for(int n = 0; n < r-1; ++n)
-                {
                     DGV.Rows.Add("Produttore " + (n+1));
-                }
                 DGV.Rows.Add("Richiesta");
                 DGV[c, r-1].ReadOnly = true;
                 DGV.Columns[0].ReadOnly = true;
                 DGV.Columns[0].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                btnSolve.Enabled = true;
             }
             else
                 MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
@@ -166,13 +171,9 @@ namespace TLC
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (this.WindowState != FormWindowState.Maximized)
-            {
                 FormBorderStyle = FormBorderStyle.Sizable;
-            }
             else
-            {
                 FormBorderStyle = FormBorderStyle.None;
-            }
         }
         private void panelTitle_DoubleClick(object sender, EventArgs e)
         {
