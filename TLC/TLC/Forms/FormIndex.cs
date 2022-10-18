@@ -119,7 +119,7 @@ namespace TLC
                         DGV.Columns.RemoveAt(n);
                         c--;
                         n--;
-                        Thread.Sleep(200);
+                        Thread.Sleep(400);
                         DGV.Update();
                         DGV.Refresh();
                     }
@@ -165,6 +165,29 @@ namespace TLC
             else
                 MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
         }
+
+        //Auto Generate Numbers
+        private void FillTable()
+        {
+            int c = DGV.ColumnCount-1;
+            int r = DGV.RowCount-1;
+            int t = 0;
+            Random rand = new Random();
+            for (int n = 1; n < c; ++n)
+                for (int j = 0; j < r; ++j)
+                    DGV[n, j].Value = rand.Next(1, 100);
+            for (int n = 1; n < c; ++n) {
+                DGV[n, r].Value = rand.Next(100, 1000);
+                t += Convert.ToInt32(DGV[n, r].Value);
+            }
+            for (int n = 0; n < r-1; ++n)
+            {
+                DGV[c, n].Value = rand.Next(100, t/2);
+                t -= Convert.ToInt32(DGV[c, n].Value);
+            }
+            DGV[c, r-1].Value = t;
+        }
+
 
         //Move Form
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -293,6 +316,11 @@ namespace TLC
         private void customizeDGV()
         {
             DGV.BorderStyle = BorderStyle.None;
+        }
+        //Calls
+        private void btn_GenerateTblRand_Click(object sender, EventArgs e)
+        {
+            FillTable();
         }
     }
 }

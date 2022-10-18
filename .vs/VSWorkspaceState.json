@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TLC",
+    "\\TLC\\TLC"
   ],
+  "SelectedNode": "\\TLC\\TLC\\Program.cs",
   "PreviewInSolutionExplorer": false
 }
