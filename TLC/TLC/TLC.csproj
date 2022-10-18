@@ -49,16 +49,25 @@
     <Compile Include="CustomButton\CustomButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\FormIndex.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FormIndex.Designer.cs">
+      <DependentUpon>FormIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormTotalCosts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormTotalCosts.Designer.cs">
+      <DependentUpon>FormTotalCosts.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormIndex.resx">
+      <DependentUpon>FormIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormTotalCosts.resx">
+      <DependentUpon>FormTotalCosts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

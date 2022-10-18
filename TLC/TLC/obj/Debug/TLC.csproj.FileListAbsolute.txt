@@ -1,6 +1,5 @@
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.AssemblyReference.cache
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.SuggestedBindingRedirects.cache
-C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Form1.resources
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.GenerateResource.cache
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\bin\Debug\TLC.exe.config
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\bin\Debug\TLC.exe
@@ -20,3 +19,5 @@ C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debu
 C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.pdb
 C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.AssemblyReference.cache
 C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.csproj.SuggestedBindingRedirects.cache
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.FormIndex.resources
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Forms.FormTotalCosts.resources

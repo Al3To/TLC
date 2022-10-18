@@ -11,14 +11,16 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
 using System.IO;
+using TLC.Forms;
 
 namespace TLC
 {
-    public partial class Form1 : Form
+    public partial class FormIndex : Form
     {
-        public Form1()
+        public FormIndex()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
@@ -74,6 +76,8 @@ namespace TLC
         }
         public void NordOvest()
         {
+            FormTotalCosts formTotalCosts = new FormTotalCosts(this);
+            formTotalCosts.Show();
             int p; //production
             int n; //needs
             int c = 0; //cost
@@ -85,16 +89,18 @@ namespace TLC
                     DGV[1, DGV.RowCount - 1].Value = "0";
                     DGV[DGV.ColumnCount - 1, 0].Value = Convert.ToString(p - n);
                     c += n * Convert.ToInt32(DGV[1, 0].Value);
+                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + c.ToString() + Environment.NewLine);
                 }
                 else
                 {
                     DGV[DGV.ColumnCount - 1, 0].Value = "0";
                     DGV[1, DGV.RowCount - 1].Value = Convert.ToString(n - p);
                     c += p * Convert.ToInt32(DGV[1, 0].Value);
+                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + c.ToString() + Environment.NewLine);
                 }               
                 RemoveEmptys();
             }
-            MessageBox.Show(c.ToString());
+            formTotalCosts.Write(Environment.NewLine + "Costo Totale: " + c.ToString());
             btnSolve.Enabled = false;
         }
         public void MinimumCost()
@@ -103,6 +109,7 @@ namespace TLC
         }
         public void RemoveEmptys()
         {
+
             int c = DGV.ColumnCount; 
             int r = DGV.RowCount; 
             for (int n = 1; n < c - 1; ++n)
@@ -112,7 +119,9 @@ namespace TLC
                         DGV.Columns.RemoveAt(n);
                         c--;
                         n--;
-                        Thread.Sleep(1000);
+                        Thread.Sleep(200);
+                        DGV.Update();
+                        DGV.Refresh();
                     }
             for (int n = 0; n < r; ++n)
                 if (Int32.TryParse(DGV[c-1,n].Value.ToString(), out Int32 num))
@@ -121,7 +130,9 @@ namespace TLC
                         DGV.Rows.RemoveAt(n);
                         r--;
                         n--;
-                        Thread.Sleep(1000);
+                        Thread.Sleep(400);
+                        DGV.Update();
+                        DGV.Refresh();
                     }
         }
 
