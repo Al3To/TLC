@@ -34,7 +34,7 @@
             // labelCosts
             // 
             this.labelCosts.AutoSize = true;
-            this.labelCosts.Location = new System.Drawing.Point(84, 71);
+            this.labelCosts.Location = new System.Drawing.Point(12, 9);
             this.labelCosts.Name = "labelCosts";
             this.labelCosts.Size = new System.Drawing.Size(0, 16);
             this.labelCosts.TabIndex = 0;
@@ -43,10 +43,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(419, 450);
             this.Controls.Add(this.labelCosts);
             this.Name = "FormTotalCosts";
-            this.Text = "FormTotalCosts";
             this.ResumeLayout(false);
             this.PerformLayout();
 

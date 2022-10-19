@@ -12,6 +12,7 @@ using System.Threading;
 using System.Diagnostics;
 using System.IO;
 using TLC.Forms;
+using System.Globalization;
 
 namespace TLC
 {
@@ -78,9 +79,11 @@ namespace TLC
         {
             FormTotalCosts formTotalCosts = new FormTotalCosts(this);
             formTotalCosts.Show();
+            var nfi = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
             int p; //production
             int n; //needs
             int c = 0; //cost
+            string tC; //total Cost
             while (DGV.ColumnCount!=2) {
                 p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, 0].Value.ToString());
                 n = Convert.ToInt32(DGV[1, DGV.RowCount-1].Value.ToString());
@@ -89,18 +92,21 @@ namespace TLC
                     DGV[1, DGV.RowCount - 1].Value = "0";
                     DGV[DGV.ColumnCount - 1, 0].Value = Convert.ToString(p - n);
                     c += n * Convert.ToInt32(DGV[1, 0].Value);
-                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + c.ToString() + Environment.NewLine);
+                    tC = c.ToString("#,##0.00", nfi);
+                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
                 }
                 else
                 {
                     DGV[DGV.ColumnCount - 1, 0].Value = "0";
                     DGV[1, DGV.RowCount - 1].Value = Convert.ToString(n - p);
                     c += p * Convert.ToInt32(DGV[1, 0].Value);
-                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + c.ToString() + Environment.NewLine);
+                    tC = c.ToString("#,##0.00", nfi);
+                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
                 }               
                 RemoveEmptys();
             }
-            formTotalCosts.Write(Environment.NewLine + "Costo Totale: " + c.ToString());
+            tC = c.ToString("#,##0.00", nfi);
+            formTotalCosts.Write(Environment.NewLine + "Costo Totale: " + tC);
             btnSolve.Enabled = false;
         }
         public void MinimumCost()
@@ -175,14 +181,14 @@ namespace TLC
             Random rand = new Random();
             for (int n = 1; n < c; ++n)
                 for (int j = 0; j < r; ++j)
-                    DGV[n, j].Value = rand.Next(1, 100);
+                    DGV[n, j].Value = rand.Next(5, 100);
             for (int n = 1; n < c; ++n) {
                 DGV[n, r].Value = rand.Next(100, 1000);
                 t += Convert.ToInt32(DGV[n, r].Value);
             }
             for (int n = 0; n < r-1; ++n)
             {
-                DGV[c, n].Value = rand.Next(100, t/2);
+                DGV[c, n].Value = rand.Next(100, t/(r-n));
                 t -= Convert.ToInt32(DGV[c, n].Value);
             }
             DGV[c, r-1].Value = t;

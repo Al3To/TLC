@@ -33,8 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.btnSolve = new TLC.CustomButton.CustomButton();
-            this.btnGenerateDGV = new TLC.CustomButton.CustomButton();
             this.labelRows = new System.Windows.Forms.Label();
             this.labelColumns = new System.Windows.Forms.Label();
             this.textBoxRows = new System.Windows.Forms.TextBox();
@@ -46,6 +44,8 @@
             this.pictureMaximize = new System.Windows.Forms.PictureBox();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.btn_GenerateTblRand = new TLC.CustomButton.CustomButton();
+            this.btnSolve = new TLC.CustomButton.CustomButton();
+            this.btnGenerateDGV = new TLC.CustomButton.CustomButton();
             this.panelTitle.SuspendLayout();
             this.panelWindowControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
@@ -70,57 +70,16 @@
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1024, 98);
+            this.panelTitle.Size = new System.Drawing.Size(1024, 118);
             this.panelTitle.TabIndex = 0;
             this.panelTitle.DoubleClick += new System.EventHandler(this.panelTitle_DoubleClick);
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
-            // 
-            // btnSolve
-            // 
-            this.btnSolve.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSolve.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSolve.BorderRadius = 20;
-            this.btnSolve.BorderSize = 0;
-            this.btnSolve.Enabled = false;
-            this.btnSolve.FlatAppearance.BorderSize = 0;
-            this.btnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSolve.ForeColor = System.Drawing.Color.White;
-            this.btnSolve.Location = new System.Drawing.Point(875, 50);
-            this.btnSolve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnSolve.Name = "btnSolve";
-            this.btnSolve.Size = new System.Drawing.Size(149, 41);
-            this.btnSolve.TabIndex = 10;
-            this.btnSolve.Text = "Trova I Costi";
-            this.btnSolve.TextColor = System.Drawing.Color.White;
-            this.btnSolve.UseVisualStyleBackColor = false;
-            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
-            // 
-            // btnGenerateDGV
-            // 
-            this.btnGenerateDGV.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnGenerateDGV.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnGenerateDGV.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnGenerateDGV.BorderRadius = 20;
-            this.btnGenerateDGV.BorderSize = 0;
-            this.btnGenerateDGV.FlatAppearance.BorderSize = 0;
-            this.btnGenerateDGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerateDGV.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateDGV.Location = new System.Drawing.Point(418, 7);
-            this.btnGenerateDGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnGenerateDGV.Name = "btnGenerateDGV";
-            this.btnGenerateDGV.Size = new System.Drawing.Size(149, 41);
-            this.btnGenerateDGV.TabIndex = 9;
-            this.btnGenerateDGV.Text = "Genera Tabella";
-            this.btnGenerateDGV.TextColor = System.Drawing.Color.White;
-            this.btnGenerateDGV.UseVisualStyleBackColor = false;
-            this.btnGenerateDGV.Click += new System.EventHandler(this.btnGenerateDGV_Click);
             // 
             // labelRows
             // 
             this.labelRows.AutoSize = true;
             this.labelRows.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelRows.Location = new System.Drawing.Point(187, 68);
+            this.labelRows.Location = new System.Drawing.Point(187, 75);
             this.labelRows.Name = "labelRows";
             this.labelRows.Size = new System.Drawing.Size(67, 16);
             this.labelRows.TabIndex = 8;
@@ -140,7 +99,7 @@
             // 
             this.textBoxRows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.textBoxRows.ForeColor = System.Drawing.Color.Gainsboro;
-            this.textBoxRows.Location = new System.Drawing.Point(281, 66);
+            this.textBoxRows.Location = new System.Drawing.Point(281, 72);
             this.textBoxRows.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBoxRows.Name = "textBoxRows";
             this.textBoxRows.ShortcutsEnabled = false;
@@ -166,7 +125,7 @@
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(163, 98);
+            this.panelLogo.Size = new System.Drawing.Size(163, 118);
             this.panelLogo.TabIndex = 4;
             // 
             // panelWindowControl
@@ -252,7 +211,7 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.EnableHeadersVisualStyles = false;
             this.DGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
-            this.DGV.Location = new System.Drawing.Point(0, 98);
+            this.DGV.Location = new System.Drawing.Point(0, 118);
             this.DGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DGV.Name = "DGV";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -266,7 +225,7 @@
             this.DGV.RowHeadersVisible = false;
             this.DGV.RowHeadersWidth = 51;
             this.DGV.RowTemplate.Height = 24;
-            this.DGV.Size = new System.Drawing.Size(1024, 414);
+            this.DGV.Size = new System.Drawing.Size(1024, 394);
             this.DGV.TabIndex = 1;
             this.DGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DGV_EditingControlShowing);
             this.DGV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGV_KeyPress);
@@ -281,15 +240,56 @@
             this.btn_GenerateTblRand.FlatAppearance.BorderSize = 0;
             this.btn_GenerateTblRand.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_GenerateTblRand.ForeColor = System.Drawing.Color.White;
-            this.btn_GenerateTblRand.Location = new System.Drawing.Point(418, 53);
+            this.btn_GenerateTblRand.Location = new System.Drawing.Point(418, 56);
             this.btn_GenerateTblRand.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_GenerateTblRand.Name = "btn_GenerateTblRand";
-            this.btn_GenerateTblRand.Size = new System.Drawing.Size(149, 41);
+            this.btn_GenerateTblRand.Size = new System.Drawing.Size(144, 54);
             this.btn_GenerateTblRand.TabIndex = 11;
             this.btn_GenerateTblRand.Text = "Genera Tabella Casualmente";
             this.btn_GenerateTblRand.TextColor = System.Drawing.Color.White;
             this.btn_GenerateTblRand.UseVisualStyleBackColor = false;
             this.btn_GenerateTblRand.Click += new System.EventHandler(this.btn_GenerateTblRand_Click);
+            // 
+            // btnSolve
+            // 
+            this.btnSolve.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSolve.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSolve.BorderRadius = 20;
+            this.btnSolve.BorderSize = 0;
+            this.btnSolve.Enabled = false;
+            this.btnSolve.FlatAppearance.BorderSize = 0;
+            this.btnSolve.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSolve.ForeColor = System.Drawing.Color.White;
+            this.btnSolve.Location = new System.Drawing.Point(875, 50);
+            this.btnSolve.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.Size = new System.Drawing.Size(149, 41);
+            this.btnSolve.TabIndex = 10;
+            this.btnSolve.Text = "Trova I Costi";
+            this.btnSolve.TextColor = System.Drawing.Color.White;
+            this.btnSolve.UseVisualStyleBackColor = false;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
+            // 
+            // btnGenerateDGV
+            // 
+            this.btnGenerateDGV.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnGenerateDGV.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnGenerateDGV.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnGenerateDGV.BorderRadius = 20;
+            this.btnGenerateDGV.BorderSize = 0;
+            this.btnGenerateDGV.FlatAppearance.BorderSize = 0;
+            this.btnGenerateDGV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateDGV.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateDGV.Location = new System.Drawing.Point(418, 0);
+            this.btnGenerateDGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnGenerateDGV.Name = "btnGenerateDGV";
+            this.btnGenerateDGV.Size = new System.Drawing.Size(144, 48);
+            this.btnGenerateDGV.TabIndex = 9;
+            this.btnGenerateDGV.Text = "Genera Tabella";
+            this.btnGenerateDGV.TextColor = System.Drawing.Color.White;
+            this.btnGenerateDGV.UseVisualStyleBackColor = false;
+            this.btnGenerateDGV.Click += new System.EventHandler(this.btnGenerateDGV_Click);
             // 
             // FormIndex
             // 
