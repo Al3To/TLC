@@ -42,23 +42,15 @@ namespace TLC
                 }
             }
             else
-            {
                 MessageBox.Show("La tabella non è completa!", "Errore", MessageBoxButtons.OK);
-            }
         }
         public bool Check()
         {
             for (int c = 0; c < DGV.ColumnCount; ++c)
-            {
                 for (int r = 0; r < DGV.RowCount; ++r)
-                {
                     if (DGV[c, r].Value == null)
-                    {
                         if (c != DGV.ColumnCount && r != DGV.RowCount - 1)
                             return false;
-                    }
-                }
-            }
             return true;
         }
         public void CalculateTotal()
@@ -102,8 +94,15 @@ namespace TLC
                     c += p * Convert.ToInt32(DGV[1, 0].Value);
                     tC = c.ToString("#,##0.00", nfi);
                     formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
-                }               
-                RemoveEmptys();
+                }
+                if (Int32.TryParse(DGV[1, DGV.RowCount-1].Value.ToString(), out Int32 num))
+                    if (num == 0)
+                        DGV.Columns.RemoveAt(1);
+                if (Int32.TryParse(DGV[DGV.ColumnCount-1, 0].Value.ToString(), out Int32 num_))
+                    if (num_ == 0)
+                        DGV.Rows.RemoveAt(0);
+                DGV.Update();
+                DGV.Refresh();
             }
             tC = c.ToString("#,##0.00", nfi);
             formTotalCosts.Write(Environment.NewLine + "Costo Totale: " + tC);
@@ -125,7 +124,6 @@ namespace TLC
                         DGV.Columns.RemoveAt(n);
                         c--;
                         n--;
-                        Thread.Sleep(400);
                         DGV.Update();
                         DGV.Refresh();
                     }
@@ -136,7 +134,6 @@ namespace TLC
                         DGV.Rows.RemoveAt(n);
                         r--;
                         n--;
-                        Thread.Sleep(400);
                         DGV.Update();
                         DGV.Refresh();
                     }
@@ -307,16 +304,12 @@ namespace TLC
             TextBox tb = e.Control as TextBox;
             tb.ShortcutsEnabled = false;
             if (tb != null)
-            {
                 tb.KeyPress += new KeyPressEventHandler(DGV_KeyPress);
-            }
         }
         private void DGV_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
                 e.Handled = true;
-            }
         }
         //Customize DataGridView
         private void customizeDGV()
