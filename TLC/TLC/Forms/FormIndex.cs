@@ -18,6 +18,8 @@ namespace TLC
 {
     public partial class FormIndex : Form
     {
+        FormTotalCosts formTotalCosts = null;
+        DataGridView DGV_B = new DataGridView();
         public FormIndex()
         {
             InitializeComponent();
@@ -37,7 +39,14 @@ namespace TLC
                 if (DGV[DGV.ColumnCount - 1, DGV.RowCount - 1].Value == null) return;
                 else
                 {
+                    CopyPasteDGV(DGV_B, DGV);
+                    btnSolve.Enabled = false;
+                    btn_GenerateTblRand.Enabled = false;
                     NordOvest();
+                    Thread.Sleep(200);
+                    CopyPasteDGV(DGV, DGV_B);
+                    DGV.Update();
+                    DGV.Refresh();
                     MinimumCost();
                 }
             }
@@ -69,23 +78,22 @@ namespace TLC
         }
         public void NordOvest()
         {
-            FormTotalCosts formTotalCosts = new FormTotalCosts(this);
-            formTotalCosts.Show();
             var nfi = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
             int p; //production
             int n; //needs
             int c = 0; //cost
             string tC; //total Cost
-            while (DGV.ColumnCount!=2) {
+            while (DGV.ColumnCount != 2)
+            {
                 p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, 0].Value.ToString());
-                n = Convert.ToInt32(DGV[1, DGV.RowCount-1].Value.ToString());
+                n = Convert.ToInt32(DGV[1, DGV.RowCount - 1].Value.ToString());
                 if (n < p)
                 {
                     DGV[1, DGV.RowCount - 1].Value = "0";
                     DGV[DGV.ColumnCount - 1, 0].Value = Convert.ToString(p - n);
                     c += n * Convert.ToInt32(DGV[1, 0].Value);
                     tC = c.ToString("#,##0.00", nfi);
-                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
+                    CallFormWrite(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
                 }
                 else
                 {
@@ -93,32 +101,84 @@ namespace TLC
                     DGV[1, DGV.RowCount - 1].Value = Convert.ToString(n - p);
                     c += p * Convert.ToInt32(DGV[1, 0].Value);
                     tC = c.ToString("#,##0.00", nfi);
-                    formTotalCosts.Write(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
+                    CallFormWrite(n.ToString() + " * " + Convert.ToInt32(DGV[1, 0].Value) + " = " + tC + Environment.NewLine);
                 }
-                if (Int32.TryParse(DGV[1, DGV.RowCount-1].Value.ToString(), out Int32 num))
+                if (Int32.TryParse(DGV[1, DGV.RowCount - 1].Value.ToString(), out Int32 num))
                     if (num == 0)
                         DGV.Columns.RemoveAt(1);
-                if (Int32.TryParse(DGV[DGV.ColumnCount-1, 0].Value.ToString(), out Int32 num_))
+                if (Int32.TryParse(DGV[DGV.ColumnCount - 1, 0].Value.ToString(), out Int32 num_))
                     if (num_ == 0)
                         DGV.Rows.RemoveAt(0);
                 DGV.Update();
                 DGV.Refresh();
             }
             tC = c.ToString("#,##0.00", nfi);
-            formTotalCosts.Write(Environment.NewLine + "Costo Totale: " + tC);
-            btnSolve.Enabled = false;
+            CallFormWrite(Environment.NewLine + "Costo Totale: " + tC + Environment.NewLine);
         }
         public void MinimumCost()
         {
-
+            var nfi = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
+            int p;
+            int n;
+            int c = 0;
+            string tC;
+            int minCost;
+            int minCostIndexC = 0, minCostIndexR = 0;
+            minCost = Convert.ToInt32(DGV[1, 0].Value);
+            while (DGV.ColumnCount != 2)
+            {
+                
+                minCost = int.MaxValue;
+                for (int k = 1; k < DGV.ColumnCount - 1; ++k)
+                    for (int j = 0; j < DGV.RowCount - 1; ++j)
+                        if (Convert.ToInt32(DGV[k, j].Value) < minCost)
+                        {
+                            minCost = Convert.ToInt32(DGV[k, j].Value);
+                            minCostIndexC = k;
+                            minCostIndexR = j;
+                        }
+                        else if (Convert.ToInt32(DGV[k, j].Value) == minCost)
+                        {
+                            if (Convert.ToInt32(DGV[minCostIndexC, DGV.RowCount - 1].Value) < Convert.ToInt32(DGV[k, DGV.RowCount - 1].Value))
+                            {
+                                minCost = Convert.ToInt32(DGV[k, j].Value);
+                                minCostIndexC = k;
+                                minCostIndexR = j;
+                            }
+                        }
+                    
+                
+                p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, minCostIndexR].Value.ToString());
+                n = Convert.ToInt32(DGV[minCostIndexC, DGV.RowCount - 1].Value.ToString());
+                if (n < p)
+                {
+                    DGV[minCostIndexC, DGV.RowCount - 1].Value = "0";
+                    DGV[DGV.ColumnCount - 1, minCostIndexR].Value = Convert.ToString(p - n);
+                    c += n * Convert.ToInt32(DGV[minCostIndexC, minCostIndexR].Value);
+                    tC = c.ToString("#,##0.00", nfi);
+                    CallFormWrite(n.ToString() + " * " + Convert.ToInt32(DGV[minCostIndexC, minCostIndexR].Value) + " = " + tC + Environment.NewLine);
+                }
+                else
+                {
+                    DGV[DGV.ColumnCount - 1, minCostIndexR].Value = "0";
+                    DGV[minCostIndexC, DGV.RowCount - 1].Value = Convert.ToString(n - p);
+                    c += p * Convert.ToInt32(DGV[minCostIndexC, minCostIndexR].Value);
+                    tC = c.ToString("#,##0.00", nfi);
+                    CallFormWrite(n.ToString() + " * " + Convert.ToInt32(DGV[minCostIndexC, minCostIndexR].Value) + " = " + tC + Environment.NewLine);
+                }
+                RemoveEmptys();
+            }
+            tC = c.ToString("#,##0.00", nfi);
+            CallFormWrite(Environment.NewLine + "Costo Totale: " + tC + Environment.NewLine);
         }
+
         public void RemoveEmptys()
         {
 
-            int c = DGV.ColumnCount; 
-            int r = DGV.RowCount; 
+            int c = DGV.ColumnCount;
+            int r = DGV.RowCount;
             for (int n = 1; n < c - 1; ++n)
-                if (Int32.TryParse(DGV[n, r-1].Value.ToString(), out Int32 num))
+                if (Int32.TryParse(DGV[n, r - 1].Value.ToString(), out Int32 num))
                     if (num == 0)
                     {
                         DGV.Columns.RemoveAt(n);
@@ -128,7 +188,7 @@ namespace TLC
                         DGV.Refresh();
                     }
             for (int n = 0; n < r; ++n)
-                if (Int32.TryParse(DGV[c-1,n].Value.ToString(), out Int32 num))
+                if (Int32.TryParse(DGV[c - 1, n].Value.ToString(), out Int32 num))
                     if (num == 0)
                     {
                         DGV.Rows.RemoveAt(n);
@@ -138,35 +198,79 @@ namespace TLC
                         DGV.Refresh();
                     }
         }
+        public void CallFormWrite(string data)
+        {
+            
+            if (formTotalCosts == null)
+            {
+                formTotalCosts = new FormTotalCosts(this);
+                formTotalCosts.Show();
+                formTotalCosts.FormClosed += new FormClosedEventHandler(Form_Closed);
+            }
+            else
+                formTotalCosts.Write(data);
 
+        }
+        void Form_Closed(object sender, FormClosedEventArgs e)
+        {
+            FormTotalCosts frm = (FormTotalCosts)sender;
+            formTotalCosts = null;
+        }
         //Generate Table
         private void btnGenerateDGV_Click(object sender, EventArgs e)
         {
-            if(textBoxColumns.Text != "" && textBoxRows.Text != "" && textBoxColumns.Text != "1" && textBoxRows.Text != "1")
+            if (textBoxColumns.Text != "" && textBoxRows.Text != "" && textBoxColumns.Text != "1" && textBoxRows.Text != "1" && Convert.ToInt32(textBoxColumns.Text) < 651 && Convert.ToInt32(textBoxRows.Text) < 651)
             {
                 DGV.DataSource = null;
                 DGV.Rows.Clear();
                 int c = Convert.ToInt32(textBoxColumns.Text) + 1;
                 int r = Convert.ToInt32(textBoxRows.Text) + 1;
-                DGV.ColumnCount = c+1;
+                DGV.ColumnCount = c + 1;
                 DGV.Columns[0].Name = " ";
-                for(int n = 1; n<DGV.ColumnCount-1; ++n)
+                DGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+                for (int n = 1; n < DGV.ColumnCount - 1; ++n)
                 {
                     DGV.Columns[n].Name = "Consumatore " + n;
                     DGV.Columns[n].SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
                 DGV.Columns[c].Name = "Produzione";
                 DGV.Columns[c].SortMode = DataGridViewColumnSortMode.NotSortable;
-                for(int n = 0; n < r-1; ++n)
-                    DGV.Rows.Add("Produttore " + (n+1));
+                for (int n = 0; n < r - 1; ++n)
+                    DGV.Rows.Add("Produttore " + (n + 1));
                 DGV.Rows.Add("Richiesta");
-                DGV[c, r-1].ReadOnly = true;
+                DGV[c, r - 1].ReadOnly = true;
                 DGV.Columns[0].ReadOnly = true;
                 DGV.Columns[0].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                 btnSolve.Enabled = true;
+                btn_GenerateTblRand.Enabled = true;
+                DGV.Update();
+                DGV.Refresh();
+                CopyPasteDGV(DGV_B, DGV);
             }
+            else if (Convert.ToInt32(textBoxColumns.Text) > 651 || Convert.ToInt32(textBoxRows.Text) > 651)
+                MessageBox.Show("I Consumatori o i Produttori non possono superare i 650", "Errore!");
             else
                 MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
+        }
+
+        private void CopyPasteDGV(DataGridView a /*to paste in*/, DataGridView b /*to copy from*/)
+        {
+            a.ColumnCount = b.ColumnCount;
+            a.RowCount = b.RowCount;
+            for (int n = 0; n < b.ColumnCount; ++n)
+            {
+                a.Columns[n].Name = b.Columns[n].Name;
+                a.Columns[n].SortMode = b.Columns[n].SortMode;
+                a.Columns[n].ReadOnly = b.Columns[n].ReadOnly;
+                a.Columns[n].DefaultCellStyle.Font = b.Columns[n].DefaultCellStyle.Font;
+            }
+            for (int k = 0; k < b.ColumnCount; ++k)
+                for (int j = 0; j < b.RowCount; ++j)
+                {
+                    a[k, j].Value = b[k, j].Value;
+                    a[k, j].ReadOnly = b[k, j].ReadOnly;
+                }
+
         }
 
         //Auto Generate Numbers
@@ -199,9 +303,18 @@ namespace TLC
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
         {
-            FormBorderStyle = FormBorderStyle.Sizable;
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            base.OnMouseDown(e);
+
+            if (e.Button == MouseButtons.Left)
+                if (e.Clicks > 1)
+                    pictureMaximize_Click(this.pictureMaximize, e);
+                else
+                {
+                    FormBorderStyle = FormBorderStyle.Sizable;
+                    ReleaseCapture();
+                    SendMessage(this.Handle, 0x112, 0xf012, 0);
+                }
+            
         }
 
         //Controls
@@ -211,10 +324,6 @@ namespace TLC
                 FormBorderStyle = FormBorderStyle.Sizable;
             else
                 FormBorderStyle = FormBorderStyle.None;
-        }
-        private void panelTitle_DoubleClick(object sender, EventArgs e)
-        {
-            pictureMaximize_Click(this.pictureMaximize, e);
         }
         private void panelWindowControl_MouseEnter(object sender, EventArgs e)
         {
