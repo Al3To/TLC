@@ -28,3 +28,9 @@ C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debu
 C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.FormIndex.en.resources
 C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\aa\TLC.resources.dll
 C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\en\TLC.resources.dll
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\bin\Debug\aa\TLC.resources.dll
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\bin\Debug\en\TLC.resources.dll
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.FormIndex.aa.resources
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.FormIndex.en.resources
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\aa\TLC.resources.dll
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\en\TLC.resources.dll

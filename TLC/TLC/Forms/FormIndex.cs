@@ -219,38 +219,51 @@ namespace TLC
         //Generate Table
         private void btnGenerateDGV_Click(object sender, EventArgs e)
         {
-            if (textBoxColumns.Text != "" && textBoxRows.Text != "" && textBoxColumns.Text != "1" && textBoxRows.Text != "1" && Convert.ToInt32(textBoxColumns.Text) < 651 && Convert.ToInt32(textBoxRows.Text) < 651)
+            bool a = Int32.TryParse(textBoxColumns.Text, out Int32 c);
+            bool b = Int32.TryParse(textBoxRows.Text, out Int32 r);
+            if (a && b)
             {
-                DGV.DataSource = null;
-                DGV.Rows.Clear();
-                int c = Convert.ToInt32(textBoxColumns.Text) + 1;
-                int r = Convert.ToInt32(textBoxRows.Text) + 1;
-                DGV.ColumnCount = c + 1;
-                DGV.Columns[0].Name = " ";
-                DGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
-                for (int n = 1; n < DGV.ColumnCount - 1; ++n)
+                if (textBoxColumns.Text == "")
+                    c = 0;
+                if (textBoxRows.Text == "")
+                    r = 0;
+                if (c > 500)
+                    MessageBox.Show("I consumatori non possono essere più di 500", "Errore!");
+                else if (r > 500)
+                    MessageBox.Show("I produttori non possono essere più di 500", "Errore!");
+                else if (c < 2 || r < 2)
+                    MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
+                else
                 {
-                    DGV.Columns[n].Name = "Consumatore " + n;
-                    DGV.Columns[n].SortMode = DataGridViewColumnSortMode.NotSortable;
+                    DGV.DataSource = null;
+                    DGV.Rows.Clear();
+                    c += 1;
+                    r += 1;
+                    DGV.ColumnCount = c + 1;
+                    DGV.Columns[0].Name = " ";
+                    DGV.Columns[0].SortMode = DataGridViewColumnSortMode.NotSortable;
+                    for (int n = 1; n < DGV.ColumnCount - 1; ++n)
+                    {
+                        DGV.Columns[n].Name = "Consumatore " + n;
+                        DGV.Columns[n].SortMode = DataGridViewColumnSortMode.NotSortable;
+                    }
+                    DGV.Columns[c].Name = "Produzione";
+                    DGV.Columns[c].SortMode = DataGridViewColumnSortMode.NotSortable;
+                    for (int n = 0; n < r - 1; ++n)
+                        DGV.Rows.Add("Produttore " + (n + 1));
+                    DGV.Rows.Add("Richiesta");
+                    DGV[c, r - 1].ReadOnly = true;
+                    DGV.Columns[0].ReadOnly = true;
+                    DGV.Columns[0].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    btnSolve.Enabled = true;
+                    btn_GenerateTblRand.Enabled = true;
+                    DGV.Update();
+                    DGV.Refresh();
+                    CopyPasteDGV(DGV_B, DGV);
                 }
-                DGV.Columns[c].Name = "Produzione";
-                DGV.Columns[c].SortMode = DataGridViewColumnSortMode.NotSortable;
-                for (int n = 0; n < r - 1; ++n)
-                    DGV.Rows.Add("Produttore " + (n + 1));
-                DGV.Rows.Add("Richiesta");
-                DGV[c, r - 1].ReadOnly = true;
-                DGV.Columns[0].ReadOnly = true;
-                DGV.Columns[0].DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                btnSolve.Enabled = true;
-                btn_GenerateTblRand.Enabled = true;
-                DGV.Update();
-                DGV.Refresh();
-                CopyPasteDGV(DGV_B, DGV);
             }
-            else if (Convert.ToInt32(textBoxColumns.Text) > 651 || Convert.ToInt32(textBoxRows.Text) > 651)
-                MessageBox.Show("I Consumatori o i Produttori non possono superare i 650", "Errore!");
             else
-                MessageBox.Show("I Consumatori e i Produttori devono essere minimo 2", "Errore!");
+                MessageBox.Show("I valori non sono corretti!", "Errore!");
         }
 
         private void CopyPasteDGV(DataGridView a /*to paste in*/, DataGridView b /*to copy from*/)
