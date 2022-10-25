@@ -28,14 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIndex));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormIndex));
             this.panelTitle = new System.Windows.Forms.Panel();
-            this.btn_GenerateTblRand = new TLC.CustomButton.CustomButton();
-            this.btnSolve = new TLC.CustomButton.CustomButton();
-            this.btnGenerateDGV = new TLC.CustomButton.CustomButton();
             this.labelRows = new System.Windows.Forms.Label();
             this.labelColumns = new System.Windows.Forms.Label();
             this.textBoxRows = new System.Windows.Forms.TextBox();
@@ -46,18 +43,26 @@
             this.pictureMinimize = new System.Windows.Forms.PictureBox();
             this.pictureMaximize = new System.Windows.Forms.PictureBox();
             this.DGV = new System.Windows.Forms.DataGridView();
+            this.pictureOptions = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_GenerateTblRand = new TLC.CustomButton.CustomButton();
+            this.btnSolve = new TLC.CustomButton.CustomButton();
+            this.btnGenerateDGV = new TLC.CustomButton.CustomButton();
             this.panelTitle.SuspendLayout();
             this.panelWindowControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOptions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitle
             // 
-            resources.ApplyResources(this.panelTitle, "panelTitle");
             this.panelTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.panelTitle.Controls.Add(this.pictureBox1);
+            this.panelTitle.Controls.Add(this.pictureOptions);
             this.panelTitle.Controls.Add(this.btn_GenerateTblRand);
             this.panelTitle.Controls.Add(this.btnSolve);
             this.panelTitle.Controls.Add(this.btnGenerateDGV);
@@ -67,53 +72,9 @@
             this.panelTitle.Controls.Add(this.textBoxColumns);
             this.panelTitle.Controls.Add(this.panelLogo);
             this.panelTitle.Controls.Add(this.panelWindowControl);
+            resources.ApplyResources(this.panelTitle, "panelTitle");
             this.panelTitle.Name = "panelTitle";
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
-            // 
-            // btn_GenerateTblRand
-            // 
-            resources.ApplyResources(this.btn_GenerateTblRand, "btn_GenerateTblRand");
-            this.btn_GenerateTblRand.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_GenerateTblRand.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btn_GenerateTblRand.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn_GenerateTblRand.BorderRadius = 20;
-            this.btn_GenerateTblRand.BorderSize = 0;
-            this.btn_GenerateTblRand.FlatAppearance.BorderSize = 0;
-            this.btn_GenerateTblRand.ForeColor = System.Drawing.Color.White;
-            this.btn_GenerateTblRand.Name = "btn_GenerateTblRand";
-            this.btn_GenerateTblRand.TextColor = System.Drawing.Color.White;
-            this.btn_GenerateTblRand.UseVisualStyleBackColor = false;
-            this.btn_GenerateTblRand.Click += new System.EventHandler(this.btn_GenerateTblRand_Click);
-            // 
-            // btnSolve
-            // 
-            resources.ApplyResources(this.btnSolve, "btnSolve");
-            this.btnSolve.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSolve.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSolve.BorderRadius = 20;
-            this.btnSolve.BorderSize = 0;
-            this.btnSolve.FlatAppearance.BorderSize = 0;
-            this.btnSolve.ForeColor = System.Drawing.Color.White;
-            this.btnSolve.Name = "btnSolve";
-            this.btnSolve.TextColor = System.Drawing.Color.White;
-            this.btnSolve.UseVisualStyleBackColor = false;
-            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
-            // 
-            // btnGenerateDGV
-            // 
-            resources.ApplyResources(this.btnGenerateDGV, "btnGenerateDGV");
-            this.btnGenerateDGV.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnGenerateDGV.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.btnGenerateDGV.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnGenerateDGV.BorderRadius = 20;
-            this.btnGenerateDGV.BorderSize = 0;
-            this.btnGenerateDGV.FlatAppearance.BorderSize = 0;
-            this.btnGenerateDGV.ForeColor = System.Drawing.Color.White;
-            this.btnGenerateDGV.Name = "btnGenerateDGV";
-            this.btnGenerateDGV.TextColor = System.Drawing.Color.White;
-            this.btnGenerateDGV.UseVisualStyleBackColor = false;
-            this.btnGenerateDGV.Click += new System.EventHandler(this.btnGenerateDGV_Click);
             // 
             // labelRows
             // 
@@ -129,18 +90,18 @@
             // 
             // textBoxRows
             // 
-            resources.ApplyResources(this.textBoxRows, "textBoxRows");
             this.textBoxRows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.textBoxRows.ForeColor = System.Drawing.Color.Gainsboro;
+            resources.ApplyResources(this.textBoxRows, "textBoxRows");
             this.textBoxRows.Name = "textBoxRows";
             this.textBoxRows.ShortcutsEnabled = false;
             this.textBoxRows.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRows_KeyPress);
             // 
             // textBoxColumns
             // 
-            resources.ApplyResources(this.textBoxColumns, "textBoxColumns");
             this.textBoxColumns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.textBoxColumns.ForeColor = System.Drawing.Color.Gainsboro;
+            resources.ApplyResources(this.textBoxColumns, "textBoxColumns");
             this.textBoxColumns.Name = "textBoxColumns";
             this.textBoxColumns.ShortcutsEnabled = false;
             this.textBoxColumns.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxColumns_KeyPress);
@@ -162,8 +123,8 @@
             // 
             // pictureClose
             // 
-            resources.ApplyResources(this.pictureClose, "pictureClose");
             this.pictureClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.pictureClose, "pictureClose");
             this.pictureClose.Name = "pictureClose";
             this.pictureClose.TabStop = false;
             this.pictureClose.Click += new System.EventHandler(this.pictureClose_Click);
@@ -180,8 +141,8 @@
             // 
             // pictureMaximize
             // 
-            resources.ApplyResources(this.pictureMaximize, "pictureMaximize");
             this.pictureMaximize.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.pictureMaximize, "pictureMaximize");
             this.pictureMaximize.Name = "pictureMaximize";
             this.pictureMaximize.TabStop = false;
             this.pictureMaximize.Click += new System.EventHandler(this.pictureMaximize_Click);
@@ -189,7 +150,6 @@
             // 
             // DGV
             // 
-            resources.ApplyResources(this.DGV, "DGV");
             this.DGV.AllowUserToAddRows = false;
             this.DGV.AllowUserToDeleteRows = false;
             this.DGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
@@ -211,6 +171,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DGV.DefaultCellStyle = dataGridViewCellStyle2;
+            resources.ApplyResources(this.DGV, "DGV");
             this.DGV.EnableHeadersVisualStyles = false;
             this.DGV.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
             this.DGV.Name = "DGV";
@@ -226,6 +187,70 @@
             this.DGV.RowTemplate.Height = 24;
             this.DGV.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DGV_EditingControlShowing);
             this.DGV.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DGV_KeyPress);
+            // 
+            // pictureOptions
+            // 
+            resources.ApplyResources(this.pictureOptions, "pictureOptions");
+            this.pictureOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pictureOptions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureOptions.Name = "pictureOptions";
+            this.pictureOptions.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(30)))), ((int)(((byte)(54)))));
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_GenerateTblRand
+            // 
+            this.btn_GenerateTblRand.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_GenerateTblRand.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btn_GenerateTblRand.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn_GenerateTblRand.BorderRadius = 20;
+            this.btn_GenerateTblRand.BorderSize = 0;
+            this.btn_GenerateTblRand.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btn_GenerateTblRand, "btn_GenerateTblRand");
+            this.btn_GenerateTblRand.FlatAppearance.BorderSize = 0;
+            this.btn_GenerateTblRand.ForeColor = System.Drawing.Color.White;
+            this.btn_GenerateTblRand.Name = "btn_GenerateTblRand";
+            this.btn_GenerateTblRand.TextColor = System.Drawing.Color.White;
+            this.btn_GenerateTblRand.UseVisualStyleBackColor = false;
+            this.btn_GenerateTblRand.Click += new System.EventHandler(this.btn_GenerateTblRand_Click);
+            // 
+            // btnSolve
+            // 
+            resources.ApplyResources(this.btnSolve, "btnSolve");
+            this.btnSolve.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSolve.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnSolve.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSolve.BorderRadius = 20;
+            this.btnSolve.BorderSize = 0;
+            this.btnSolve.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSolve.FlatAppearance.BorderSize = 0;
+            this.btnSolve.ForeColor = System.Drawing.Color.White;
+            this.btnSolve.Name = "btnSolve";
+            this.btnSolve.TextColor = System.Drawing.Color.White;
+            this.btnSolve.UseVisualStyleBackColor = false;
+            this.btnSolve.Click += new System.EventHandler(this.btnSolve_Click);
+            // 
+            // btnGenerateDGV
+            // 
+            this.btnGenerateDGV.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnGenerateDGV.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnGenerateDGV.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnGenerateDGV.BorderRadius = 20;
+            this.btnGenerateDGV.BorderSize = 0;
+            this.btnGenerateDGV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerateDGV.FlatAppearance.BorderSize = 0;
+            resources.ApplyResources(this.btnGenerateDGV, "btnGenerateDGV");
+            this.btnGenerateDGV.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateDGV.Name = "btnGenerateDGV";
+            this.btnGenerateDGV.TextColor = System.Drawing.Color.White;
+            this.btnGenerateDGV.UseVisualStyleBackColor = false;
+            this.btnGenerateDGV.Click += new System.EventHandler(this.btnGenerateDGV_Click);
             // 
             // FormIndex
             // 
@@ -243,6 +268,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureMaximize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureOptions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,6 +290,8 @@
         private CustomButton.CustomButton btnGenerateDGV;
         private CustomButton.CustomButton btnSolve;
         private CustomButton.CustomButton btn_GenerateTblRand;
+        private System.Windows.Forms.PictureBox pictureOptions;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

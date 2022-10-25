@@ -338,16 +338,7 @@ namespace TLC
             else
                 FormBorderStyle = FormBorderStyle.None;
         }
-        private void panelWindowControl_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeImage(true);
-        }
-
-        private void panelWindowControl_MouseLeave(object sender, EventArgs e)
-        {
-            ChangeImage(false);
-        }
-
+        
         private void pictureClose_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
@@ -369,24 +360,9 @@ namespace TLC
             }
                 
         }
-
         private void pictureMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pictureClose_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeImage(true);
-        }
-        private void pictureMaximize_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeImage(true);
-        }
-
-        private void pictureMinimize_MouseEnter(object sender, EventArgs e)
-        {
-            ChangeImage(true);
         }
         private void ChangeImage(bool a)
         {
@@ -442,6 +418,28 @@ namespace TLC
         private void btn_GenerateTblRand_Click(object sender, EventArgs e)
         {
             FillTable();
+        }
+        private void pictureClose_MouseEnter(object sender, EventArgs e)
+        {
+            ChangeImage(true);
+        }
+        private void pictureMaximize_MouseEnter(object sender, EventArgs e)
+        {
+            ChangeImage(true);
+        }
+
+        private void pictureMinimize_MouseEnter(object sender, EventArgs e)
+        {
+            ChangeImage(true);
+        }
+        private void panelWindowControl_MouseEnter(object sender, EventArgs e)
+        {
+            ChangeImage(true);
+        }
+
+        private void panelWindowControl_MouseLeave(object sender, EventArgs e)
+        {
+            ChangeImage(false);
         }
     }
 }
