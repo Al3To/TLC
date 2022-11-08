@@ -14,16 +14,14 @@ namespace TLC.Forms
 {
     public partial class FormTotalCosts : Form
     {
-        private FormIndex _FormIndex;
-        public FormTotalCosts(FormIndex formIndex)
+        public FormTotalCosts()
         {
             InitializeComponent();
-            _FormIndex = formIndex;
             this.Text = String.Empty;
             this.ControlBox = false;
         }
         public void Write(string data)
-        { 
+        {
             labelCosts.Text += data;
             labelCosts.Update();
         }
@@ -37,19 +35,9 @@ namespace TLC.Forms
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void pictureClose_Click(object sender, EventArgs e)
+        private void btnOK_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void pictureClose_MouseEnter(object sender, EventArgs e)
-        {
-            pictureClose.ImageLocation = @"../../../Images/red_dot_in.png";
-        }
-
-        private void pictureClose_MouseLeave(object sender, EventArgs e)
-        {
-            pictureClose.ImageLocation = @"../../../Images/red_dot.png";
         }
     }
 }

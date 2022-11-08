@@ -51,15 +51,19 @@ namespace TLC
                 }
             }
             else
-                MessageBox.Show("La tabella non è completa!", "Errore", MessageBoxButtons.OK);
+                MessageBox.Show("La tabella non è completa o i valori non sono supportati!", "Errore", MessageBoxButtons.OK);
         }
         public bool Check()
         {
-            for (int c = 0; c < DGV.ColumnCount; ++c)
+            for (int c = 1; c < DGV.ColumnCount; ++c)
                 for (int r = 0; r < DGV.RowCount; ++r)
                     if (DGV[c, r].Value == null)
+                    {
                         if (c != DGV.ColumnCount && r != DGV.RowCount - 1)
                             return false;
+                    }
+                    else if (Int32.TryParse(DGV[c, r].Value.ToString(), out Int32 num)){ }
+                    else return false;
             return true;
         }
         public void CalculateTotal()
@@ -83,6 +87,7 @@ namespace TLC
             int n; //needs
             int c = 0; //cost
             string tC; //total Cost
+            CallFormWrite(Environment.NewLine + "---Nord Ovest---" + Environment.NewLine);
             while (DGV.ColumnCount != 2)
             {
                 p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, 0].Value.ToString());
@@ -125,6 +130,7 @@ namespace TLC
             int minCost;
             int minCostIndexC = 0, minCostIndexR = 0;
             minCost = Convert.ToInt32(DGV[1, 0].Value);
+            CallFormWrite(Environment.NewLine + "---Minimi Costi---" + Environment.NewLine);
             while (DGV.ColumnCount != 2)
             {
                 
@@ -203,7 +209,7 @@ namespace TLC
             
             if (formTotalCosts == null)
             {
-                formTotalCosts = new FormTotalCosts(this);
+                formTotalCosts = new FormTotalCosts();
                 formTotalCosts.Show();
                 formTotalCosts.FormClosed += new FormClosedEventHandler(Form_Closed);
             }
@@ -440,6 +446,29 @@ namespace TLC
         private void panelWindowControl_MouseLeave(object sender, EventArgs e)
         {
             ChangeImage(false);
+        }
+
+        private void pictureOptions_Click(object sender, EventArgs e)
+        {
+            FormOptions formOptions = new FormOptions();
+            formOptions.StartPosition = FormStartPosition.CenterParent;
+            formOptions.ShowDialog();
+        }
+
+        private void pictureBox1_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip tip = new ToolTip();
+            tip.SetToolTip(pictureBox1, "Inserdendo il numero di consumatori \n" +
+                                        "e il numero di produttori, si creerà la tabella \n" +
+                                        "da riempire. \n" +
+                                        "La somma delle richieste e la somma \n " +
+                                        "delle produzioni devono coincidere. \n" +
+                                        "Trovando i costi l'interfaccia mostrerà le operazioni \n " +
+                                        "che sta eseguendo per poi mostrare il \n " +
+                                        "costo finale per ogni metodo utilizzato. \n " +
+                                        "I metodi utilizzati saranno:\n" +
+                                        "- Nord Ovest \n " +
+                                        "- Minimi Costi \n");
         }
     }
 }

@@ -34,3 +34,5 @@ C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\T
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.FormIndex.en.resources
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\aa\TLC.resources.dll
 C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\en\TLC.resources.dll
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Forms.FormOptions.resources
+C:\Users\aleto\OneDrive\Desktop\Scuola\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Forms.FormOptions.en.resources

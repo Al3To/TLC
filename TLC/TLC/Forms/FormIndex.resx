@@ -333,13 +333,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 53</value>
+    <value>992, 65</value>
   </data>
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 21</value>
+    <value>32, 26</value>
   </data>
   <data name="pictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -472,13 +472,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureOptions.Location" type="System.Drawing.Point, System.Drawing">
-    <value>744, 33</value>
+    <value>992, 41</value>
   </data>
   <data name="pictureOptions.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureOptions.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 21</value>
+    <value>32, 26</value>
   </data>
   <data name="pictureOptions.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -508,13 +508,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_GenerateTblRand.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 49</value>
+    <value>445, 60</value>
   </data>
   <data name="btn_GenerateTblRand.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="btn_GenerateTblRand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 36</value>
+    <value>129, 44</value>
   </data>
   <data name="btn_GenerateTblRand.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -534,9 +534,6 @@
   <data name="&gt;&gt;btn_GenerateTblRand.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnSolve.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="btnSolve.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -547,13 +544,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnSolve.Location" type="System.Drawing.Point, System.Drawing">
-    <value>435, 51</value>
+    <value>580, 63</value>
   </data>
   <data name="btnSolve.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="btnSolve.Size" type="System.Drawing.Size, System.Drawing">
-    <value>112, 33</value>
+    <value>149, 41</value>
   </data>
   <data name="btnSolve.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -580,13 +577,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnGenerateDGV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>334, 7</value>
+    <value>445, 9</value>
   </data>
   <data name="btnGenerateDGV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="btnGenerateDGV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>97, 36</value>
+    <value>129, 44</value>
   </data>
   <data name="btnGenerateDGV.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -613,13 +610,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelRows.Location" type="System.Drawing.Point, System.Drawing">
-    <value>140, 61</value>
-  </data>
-  <data name="labelRows.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>187, 75</value>
   </data>
   <data name="labelRows.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 13</value>
+    <value>67, 16</value>
   </data>
   <data name="labelRows.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -646,13 +640,10 @@
     <value>NoControl</value>
   </data>
   <data name="labelColumns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>127, 14</value>
-  </data>
-  <data name="labelColumns.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 0, 2, 0</value>
+    <value>169, 17</value>
   </data>
   <data name="labelColumns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 13</value>
+    <value>85, 16</value>
   </data>
   <data name="labelColumns.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -673,13 +664,13 @@
     <value>6</value>
   </data>
   <data name="textBoxRows.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 58</value>
+    <value>281, 71</value>
   </data>
   <data name="textBoxRows.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="textBoxRows.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 20</value>
+    <value>131, 22</value>
   </data>
   <data name="textBoxRows.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -697,13 +688,13 @@
     <value>7</value>
   </data>
   <data name="textBoxColumns.Location" type="System.Drawing.Point, System.Drawing">
-    <value>211, 13</value>
+    <value>281, 16</value>
   </data>
   <data name="textBoxColumns.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="textBoxColumns.Size" type="System.Drawing.Size, System.Drawing">
-    <value>99, 20</value>
+    <value>131, 22</value>
   </data>
   <data name="textBoxColumns.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -727,10 +718,10 @@
     <value>0, 0</value>
   </data>
   <data name="panelLogo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panelLogo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>122, 96</value>
+    <value>163, 118</value>
   </data>
   <data name="panelLogo.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -1649,13 +1640,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureClose.Location" type="System.Drawing.Point, System.Drawing">
-    <value>46, 3</value>
+    <value>61, 4</value>
   </data>
   <data name="pictureClose.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureClose.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>23, 21</value>
   </data>
   <data name="pictureClose.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -3300,13 +3291,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureMinimize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>2, 3</value>
+    <value>3, 4</value>
   </data>
   <data name="pictureMinimize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureMinimize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>23, 21</value>
   </data>
   <data name="pictureMinimize.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -3471,13 +3462,13 @@
     <value>NoControl</value>
   </data>
   <data name="pictureMaximize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 3</value>
+    <value>32, 4</value>
   </data>
   <data name="pictureMaximize.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="pictureMaximize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>17, 17</value>
+    <value>23, 21</value>
   </data>
   <data name="pictureMaximize.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
@@ -3498,13 +3489,13 @@
     <value>2</value>
   </data>
   <data name="panelWindowControl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>698, 5</value>
+    <value>931, 6</value>
   </data>
   <data name="panelWindowControl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panelWindowControl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 22</value>
+    <value>91, 27</value>
   </data>
   <data name="panelWindowControl.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -3528,10 +3519,10 @@
     <value>0, 0</value>
   </data>
   <data name="panelTitle.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="panelTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>768, 96</value>
+    <value>1024, 118</value>
   </data>
   <data name="panelTitle.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -3552,16 +3543,16 @@
     <value>Fill</value>
   </data>
   <data name="DGV.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 96</value>
+    <value>0, 118</value>
   </data>
   <data name="DGV.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="DGV.RowHeadersWidth" type="System.Int32, mscorlib">
     <value>51</value>
   </data>
   <data name="DGV.Size" type="System.Drawing.Size, System.Drawing">
-    <value>768, 320</value>
+    <value>1024, 394</value>
   </data>
   <data name="DGV.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -3582,16 +3573,13 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>768, 416</value>
-  </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+    <value>1024, 512</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 3, 2, 3</value>
+    <value>3, 4, 3, 4</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>TLC</value>
