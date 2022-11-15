@@ -87,11 +87,13 @@ namespace TLC
             int n; //needs
             int c = 0; //cost
             string tC; //total Cost
-            CallFormWrite(Environment.NewLine + "---Nord Ovest---" + Environment.NewLine);
+            CallFormWrite("");
+            CallFormWrite("---Nord Ovest---" + Environment.NewLine);
             while (DGV.ColumnCount != 2)
             {
                 p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, 0].Value.ToString());
                 n = Convert.ToInt32(DGV[1, DGV.RowCount - 1].Value.ToString());
+                DGV.CurrentCell = DGV[1, 0];
                 if (n < p)
                 {
                     DGV[1, DGV.RowCount - 1].Value = "0";
@@ -152,8 +154,7 @@ namespace TLC
                                 minCostIndexR = j;
                             }
                         }
-                    
-                
+
                 p = Convert.ToInt32(DGV[DGV.ColumnCount - 1, minCostIndexR].Value.ToString());
                 n = Convert.ToInt32(DGV[minCostIndexC, DGV.RowCount - 1].Value.ToString());
                 if (n < p)

@@ -28,9 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnOK = new TLC.CustomButton.CustomButton();
             this.labelCosts = new System.Windows.Forms.Label();
+            this.btnOK = new TLC.CustomButton.CustomButton();
             this.SuspendLayout();
+            // 
+            // labelCosts
+            // 
+            this.labelCosts.AutoSize = true;
+            this.labelCosts.ForeColor = System.Drawing.Color.Gainsboro;
+            this.labelCosts.Location = new System.Drawing.Point(12, 9);
+            this.labelCosts.Name = "labelCosts";
+            this.labelCosts.Size = new System.Drawing.Size(0, 16);
+            this.labelCosts.TabIndex = 0;
             // 
             // btnOK
             // 
@@ -52,15 +61,6 @@
             this.btnOK.TextColor = System.Drawing.Color.White;
             this.btnOK.UseVisualStyleBackColor = false;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // labelCosts
-            // 
-            this.labelCosts.AutoSize = true;
-            this.labelCosts.ForeColor = System.Drawing.Color.Gainsboro;
-            this.labelCosts.Location = new System.Drawing.Point(12, 9);
-            this.labelCosts.Name = "labelCosts";
-            this.labelCosts.Size = new System.Drawing.Size(0, 16);
-            this.labelCosts.TabIndex = 0;
             // 
             // FormTotalCosts
             // 

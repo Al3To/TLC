@@ -22,8 +22,10 @@ namespace TLC.Forms
         }
         public void Write(string data)
         {
+            btnOK.Enabled = false;
             labelCosts.Text += data;
             labelCosts.Update();
+            btnOK.Enabled = true;
         }
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
