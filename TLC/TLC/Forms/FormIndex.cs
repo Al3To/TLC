@@ -304,12 +304,12 @@ namespace TLC
                 for (int j = 0; j < r; ++j)
                     DGV[n, j].Value = rand.Next(5, 100);
             for (int n = 1; n < c; ++n) {
-                DGV[n, r].Value = rand.Next(100, 1000);
+                DGV[n, r].Value = rand.Next(100, r*50);
                 t += Convert.ToInt32(DGV[n, r].Value);
             }
             for (int n = 0; n < r-1; ++n)
             {
-                DGV[c, n].Value = rand.Next(100, t/(r-n));
+                DGV[c, n].Value = rand.Next(1, t/(r-n));
                 t -= Convert.ToInt32(DGV[c, n].Value);
             }
             DGV[c, r-1].Value = t;
