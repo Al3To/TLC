@@ -27,6 +27,7 @@ namespace TLC
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
+            this.Icon = new Icon(@"../../../Logo.ico");
             customizeDGV();
         }
 

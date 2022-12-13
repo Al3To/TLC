@@ -56,3 +56,5 @@ C:\Users\tommasi.18193\Desktop\TLC\TLC\TLC\obj\Debug\aa\TLC.resources.dll
 C:\Users\tommasi.18193\Desktop\TLC\TLC\TLC\obj\Debug\en\TLC.resources.dll
 C:\Users\tommasi.18193\Desktop\TLC\TLC\TLC\obj\Debug\TLC.exe
 C:\Users\tommasi.18193\Desktop\TLC\TLC\TLC\obj\Debug\TLC.pdb
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Forms.FormOptions.resources
+C:\Users\Alessandro\Desktop\Scuola\Quinta\Gestione Progetto\TLC\TLC\TLC\obj\Debug\TLC.Forms.FormOptions.en.resources
